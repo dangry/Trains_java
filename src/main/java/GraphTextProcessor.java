@@ -51,10 +51,7 @@ public class GraphTextProcessor {
         String response = "";
 
         for (String instruction : fileLines) {
-            if(isGraph(instruction)) {
-                System.out.println(instruction);
-            } else {
-                System.out.println(instruction);
+            if(!isGraph(instruction)) {
 
                 String actionResponse = doAction(instruction);
                 response += actionResponse + '-';
