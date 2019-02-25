@@ -12,7 +12,7 @@ public class NodeTest {
     Node nodeB;
 
     @Before
-    public void setTestData() {
+    public void setTestData() throws InvalidPathNameException {
         nodeA = new Node('A');
         nodeB = new Node('B');
         Edge testEdge = new Edge(nodeB, 5);
@@ -29,23 +29,14 @@ public class NodeTest {
         assertEquals(nodeB, nodeA.getAdjacentNodeByName('B'));
     }
 
-    // TODO:
-//    @Test(expected = Exception.class)
-//    public void nodeEdgesShouldNotHaveTheSameNodeName() throws Exception {
-//        nodeA.addEdge(new Edge(nodeA, 1));
-//    }
+    @Test(expected = Exception.class)
+    public void nodeEdgesShouldNotHaveTheSameNodeName() throws Exception {
+        nodeA.addEdge(new Edge(nodeA, 1));
+    }
 
-
-    // TODO: Need some kind of factory.
-//    @Test(expected = Exception.class)
-//    public void nodesShouldBeUniqueByName() throws Exception {
-//        new Node('A');
-//    }
-//
-//    // TODO:
-//    @Test(expected = Exception.class)
-//    public void nodeShouldHaveValidNames() throws Exception {
-//        new Node('F');
-//    }
+    @Test(expected = Exception.class)
+    public void nodeShouldHaveValidNames() throws Exception {
+        new Node('F');
+    }
 
 }

@@ -3,7 +3,6 @@ package models;
 import utils.constants.ValidNodeNames;
 import utils.exception.InvalidPathNameException;
 
-import java.nio.file.InvalidPathException;
 import java.util.HashMap;
 
 public class Node {
@@ -15,25 +14,22 @@ public class Node {
         this.edges = new HashMap<>();
     }
 
-    public Node(char name) {
+    public Node(char name) throws InvalidPathNameException {
         this();
 
         if (ValidNodeNames.validNames.contains(name)) {
             this.name = name;
         } else {
-            // TODO: How do I avoid having so many exceptions?
-//            throw new Exception("This node name is not allowed.");
+            throw new InvalidPathNameException("This node name is not allowed.");
         }
 
     }
 
-    public void addEdge(Edge edge) {
+    public void addEdge(Edge edge) throws InvalidPathNameException {
         if (pointsToItself(edge)) {
-            // TODO: Do not throw so many exceptions
-//            throw new Exception("The node can't point to itself.");
+            throw new InvalidPathNameException("The node can't point to itself.");
         } else if (edgeExists(edge)) {
-            // TODO: Do not throw so many exceptions
-//            throw new Exception("This route already exists.");
+            throw new InvalidPathNameException("This route already exists.");
         } else {
             edges.put(edge.getDestination().getName(), edge);
         }

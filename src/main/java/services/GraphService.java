@@ -10,7 +10,7 @@ public class GraphService implements GraphServiceInterface{
 
     private static final String GRAPH_DELIMITER = ", ";
 
-    private static void addRoute(Graph graph, String route) {
+    private static void addRoute(Graph graph, String route) throws InvalidPathNameException {
         Node startNode = createNode(graph, route.charAt(0));
         Node endNode = createNode(graph, route.charAt(1));
         int length = Integer.valueOf(route.substring(2));
@@ -21,7 +21,7 @@ public class GraphService implements GraphServiceInterface{
         graph.addNode(startNode);
     }
 
-    private static Node createNode(Graph graph, char nodeName) {
+    private static Node createNode(Graph graph, char nodeName) throws InvalidPathNameException {
         if (graph.nodes.containsKey(nodeName)) {
             return graph.nodes.get(nodeName);
         } else {
