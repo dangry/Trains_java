@@ -9,63 +9,65 @@ import java.util.Set;
 
 public class NumberOfPathsWithMaxStops implements GraphAction {
 
-    private int maxStops;
-    private Train train;
+  private int maxStops;
+  private Train train;
 
-    private Set<String> routesSeen;
-    private int stopsCount;
-    private String route;
-    private int distanceTraveled;
+  private Set<String> routesSeen;
+  private int stopsCount;
+  private String route;
+  private int distanceTraveled;
 
-    public NumberOfPathsWithMaxStops() {
+  public NumberOfPathsWithMaxStops() {}
+
+  public int getNumberOfPathsWithLimitStops(
+      Train train, int stopsCount, String route, int distanceTraveled) {
+
+    route += train.currentNodeName;
+
+    if (route.length() - 1 > maxStops) {
+      return stopsCount;
     }
 
-    public int getNumberOfPathsWithLimitStops(Train train, int stopsCount, String route, int distanceTraveled) {
+    if (isTheEndOfTheRoute(route, train.destinationNodeName)) {
 
-        route += train.currentNodeName;
-
-        if (route.length() - 1 > maxStops) {
-            return stopsCount;
-        }
-
-        if (isTheEndOfTheRoute(route, train.destinationNodeName)) {
-
-            if (route.length() - 1 <= maxStops) {
-                stopsCount++;
-                routesSeen.add(route);
-            }
-
-        }
-
-        Node currentNode = train.getCurrentNode();
-
-        for (Edge edge : currentNode.getEdges().values()) {
-
-            Character nextNodeName = edge.getDestination().getName();
-            train.currentNodeName = nextNodeName;
-            stopsCount = getNumberOfPathsWithLimitStops(train, stopsCount, route, distanceTraveled + edge.getLength());
-
-        }
-
-        return stopsCount;
+      if (route.length() - 1 <= maxStops) {
+        stopsCount++;
+        routesSeen.add(route);
+      }
     }
 
-    public Boolean isTheEndOfTheRoute(String route, char endNodeName) {
-        return !routesSeen.contains(route) && route.endsWith(String.valueOf(endNodeName)) && route.length() > 1;
+    Node currentNode = train.getCurrentNode();
+
+    for (Edge edge : currentNode.getEdges().values()) {
+
+      Character nextNodeName = edge.getDestination().getName();
+      train.currentNodeName = nextNodeName;
+      stopsCount =
+          getNumberOfPathsWithLimitStops(
+              train, stopsCount, route, distanceTraveled + edge.getLength());
     }
 
-    @Override
-    public void setData(Train train){
-        this.maxStops = train.limit;
-        this.train = train;
-        routesSeen = new HashSet<>();
-        stopsCount = 0;
-        route = "";
-        distanceTraveled = 0;
-    }
+    return stopsCount;
+  }
 
-    @Override
-    public int execute() {
-        return getNumberOfPathsWithLimitStops(train, stopsCount, route, distanceTraveled);
-    }
+  public Boolean isTheEndOfTheRoute(String route, char endNodeName) {
+    return !routesSeen.contains(route)
+        && route.endsWith(String.valueOf(endNodeName))
+        && route.length() > 1;
+  }
+
+  @Override
+  public void setData(Train train) {
+    this.maxStops = train.limit;
+    this.train = train;
+    routesSeen = new HashSet<>();
+    stopsCount = 0;
+    route = "";
+    distanceTraveled = 0;
+  }
+
+  @Override
+  public int execute() {
+    return getNumberOfPathsWithLimitStops(train, stopsCount, route, distanceTraveled);
+  }
 }

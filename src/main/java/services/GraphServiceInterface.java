@@ -5,6 +5,5 @@ import utils.exception.InvalidPathNameException;
 
 public interface GraphServiceInterface {
 
-    Graph createGraphFromText(String graphText) throws InvalidPathNameException;
-
+  Graph createGraphFromText(String graphText) throws InvalidPathNameException;
 }
