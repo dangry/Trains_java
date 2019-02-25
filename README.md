@@ -23,7 +23,8 @@
 
 #### Build APP:
 
-Gradle wrapper can be used to build the app `./gradlew build`
+~~Gradle wrapper can be used to build the app `./gradlew build`~~
+Gradle can be used to build the app `gradle build`
 
 #### Run APP:
 
