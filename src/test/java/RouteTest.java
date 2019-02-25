@@ -18,7 +18,7 @@ public class RouteTest {
   GraphAction graphAction;
 
   @Before
-  public void setTestData() throws Exception {
+  public void setTestData() {
     graphServiceInterface = new GraphService();
     testGraphText = "AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7";
   }

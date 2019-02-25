@@ -112,32 +112,32 @@ public class GraphTextProcessorTest {
   }
 
   @Test
-  public void shouldDoActionWithText() {
+  public void shouldDoActionWithText_ROUTE_DISTANCE_STRING() {
     assertEquals("9", textProcessor.doAction(ROUTE_DISTANCE_STRING));
   }
 
   @Test
-  public void shouldDoActionWithText1() {
+  public void shouldDoActionWithText_INVALID_ROUTE_DISTANCE_STRING() {
     assertEquals("NO SUCH ROUTE", textProcessor.doAction(INVALID_ROUTE_DISTANCE_STRING));
   }
 
   @Test
-  public void shouldDoActionWithText2() {
+  public void shouldDoActionWithText_NUMBER_OF_TRIPS_MAX_STOPS_STRING() {
     assertEquals("2", textProcessor.doAction(NUMBER_OF_TRIPS_MAX_STOPS_STRING));
   }
 
   @Test
-  public void shouldDoActionWithText3() {
+  public void shouldDoActionWithText_NUMBER_OF_TRIPS_EXACT_STOPS_STRING() {
     assertEquals("3", textProcessor.doAction(NUMBER_OF_TRIPS_EXACT_STOPS_STRING));
   }
 
   @Test
-  public void shouldDoActionWithText4() {
+  public void shouldDoActionWithText_SHORTEST_ROUTE_STRING() {
     assertEquals("9", textProcessor.doAction(SHORTEST_ROUTE_STRING));
   }
 
   @Test
-  public void shouldDoActionWithText5() {
+  public void shouldDoActionWithText_DIFFERENT_ROUTES_MAX_DISTANCE_STRING() {
     assertEquals("7", textProcessor.doAction(DIFFERENT_ROUTES_MAX_DISTANCE_STRING));
   }
 
