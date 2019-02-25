@@ -1,6 +1,6 @@
-#JAVA TRAINS
+# JAVA TRAINS
 
-###This is a train information application developed for the Kiwis of Kiwiland.
+### This is a train information application developed for the Kiwis of Kiwiland.
 
 This app has:
  - **Edges**: Represent the railroads of Kiwiland train system. They have a destination and a length.
