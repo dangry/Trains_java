@@ -16,15 +16,15 @@
 
 #### Build APP:
 
-Gradle can be used to build the app `gradle build`
+Gradle can be used to build the app(from the root folder): `gradle build`
 
 #### Run APP:
 
 The resulting JAR file will be in `build/libs/` with the name `Trains_java-1.0-SNAPSHOT.jar`.
 
-To run this JAR file you have to specify the path of the test file (One is included in the project `src/test/resources/testFile.txt`):
+To run this JAR file you have to specify the path of the test file (one is included in the project `src/test/resources/testFile.txt`):
 
- - Example run (From the root folder): `java -jar build/libs/Trains_java-1.0-SNAPSHOT.jar src/test/resources/testFile.txt`
+ - Example run (from the root folder): `java -jar build/libs/Trains_java-1.0-SNAPSHOT.jar src/test/resources/testFile.txt`
  
 ## Application architecture
 
