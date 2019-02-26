@@ -2,7 +2,7 @@ package actions;
 
 import models.Graph;
 import models.Train;
-import utils.exception.InvalidPathNameException;
+import exceptions.InvalidPathNameException;
 
 public class RouteDistance implements GraphAction {
 

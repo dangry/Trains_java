@@ -1,6 +1,6 @@
 package models;
 
-import utils.exception.InvalidPathNameException;
+import exceptions.InvalidPathNameException;
 
 import java.util.ArrayList;
 import java.util.HashMap;

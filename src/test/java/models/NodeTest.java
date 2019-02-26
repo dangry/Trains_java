@@ -2,7 +2,7 @@ package models;
 
 import org.junit.Before;
 import org.junit.Test;
-import utils.exception.InvalidPathNameException;
+import exceptions.InvalidPathNameException;
 
 import static junit.framework.TestCase.assertEquals;
 

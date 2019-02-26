@@ -1,7 +1,7 @@
 package services;
 
 import models.Graph;
-import utils.exception.InvalidPathNameException;
+import exceptions.InvalidPathNameException;
 
 public interface GraphService {
 

@@ -3,7 +3,7 @@ package services;
 import models.Edge;
 import models.Graph;
 import models.Node;
-import utils.exception.InvalidPathNameException;
+import exceptions.InvalidPathNameException;
 
 public class GraphServiceImpl implements GraphService {
 

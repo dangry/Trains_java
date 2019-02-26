@@ -3,7 +3,7 @@ package models;
 import org.junit.Before;
 import org.junit.Test;
 import services.GraphServiceImpl;
-import utils.exception.InvalidPathNameException;
+import exceptions.InvalidPathNameException;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertNotNull;

@@ -5,7 +5,7 @@ import actions.GraphAction;
 import actions.GraphActionFactory;
 import models.Graph;
 import models.Train;
-import utils.exception.InvalidPathNameException;
+import exceptions.InvalidPathNameException;
 
 import static actions.ActionType.*;
 import static actions.ActionType.SHORTEST_ROUTE;

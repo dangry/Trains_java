@@ -1,4 +1,4 @@
-package utils.exception;
+package exceptions;
 
 public class InvalidPathNameException extends Exception {
 

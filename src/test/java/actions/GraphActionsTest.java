@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import services.GraphServiceImpl;
 import services.GraphService;
-import utils.exception.InvalidPathNameException;
+import exceptions.InvalidPathNameException;
 
 import static junit.framework.TestCase.assertEquals;
 
