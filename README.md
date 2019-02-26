@@ -14,20 +14,20 @@
  
 ## Application architecture
 
-#### Controllers:
+### Controllers:
 
  **- FileController** 
  
 ###### Controllers are the entry point of the application, in this case file controller was implemented to process text files.
 
-#### Services:
+### Services:
 
  **- TextService** is the interface that will be used by controllers, in this case FileController.
  **- TextServiceImpl** is the implementation of the interface, it has the logic necessary to parse text and call the apropiate actions.
 
 ###### Services are the ones that will communicate with the actions supported, in this case as we are processing and parsing text text service was implemented.
 
-#### Actions:
+### Actions:
 
  **- GraphAction** is the interface that will be used by services, in this case TextService.
  **- GraphActionFactory** is used map actions implementations to be returned to consumers.
