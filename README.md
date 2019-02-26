@@ -43,7 +43,7 @@ Example run (from the root folder): `java -jar build/libs/Trains_java-1.0-SNAPSH
  - **GraphActionFactory** is used to map actions implementations to be returned to consumers.
  - **NumberOfPathsWithExactStops, NumberOfPathsWithLimitDistance, NumberOfPathsWithMaxStops, RouteDistance, and ShortestRouteDistance** are the implementations of GraphAction interface. This are the concrete actions that will be used by consumers.
 
-#### Models:
+### Models:
  - **Edges**: Represent the **railroads** of Kiwiland train system. They have a destination and a length.
  - **Nodes** Represent train **stations**, they have a name and a list of roads with their destination.
  - **Graphs**: Represent the **railroad system map** of Kiwiland, they consist of **Nodes** (stations) and **Edges** (roads).
