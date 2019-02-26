@@ -1,4 +1,4 @@
-package graph_actions;
+package actions;
 
 import models.Graph;
 import models.Train;
@@ -11,8 +11,6 @@ public class RouteDistance implements GraphAction {
 
   private String route;
   private Graph graph;
-
-  public RouteDistance() {}
 
   public int getRouteDistance() throws InvalidPathNameException {
 

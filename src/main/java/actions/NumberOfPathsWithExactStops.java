@@ -1,4 +1,4 @@
-package graph_actions;
+package actions;
 
 import models.Edge;
 import models.Node;
@@ -14,8 +14,6 @@ public class NumberOfPathsWithExactStops implements GraphAction {
   private Set<String> routesSeen;
   private int stopsCount;
   private String route;
-
-  public NumberOfPathsWithExactStops() {}
 
   public int getNumberOfPathsWithExactStops(Train train, int stopsCount, String route) {
 

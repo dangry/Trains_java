@@ -1,4 +1,4 @@
-package graph_actions;
+package actions;
 
 import java.util.HashMap;
 import java.util.Map;

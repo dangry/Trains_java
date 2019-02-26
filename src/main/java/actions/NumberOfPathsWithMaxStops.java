@@ -1,4 +1,4 @@
-package graph_actions;
+package actions;
 
 import models.Edge;
 import models.Node;
@@ -16,8 +16,6 @@ public class NumberOfPathsWithMaxStops implements GraphAction {
   private int stopsCount;
   private String route;
   private int distanceTraveled;
-
-  public NumberOfPathsWithMaxStops() {}
 
   public int getNumberOfPathsWithLimitStops(
       Train train, int stopsCount, String route, int distanceTraveled) {

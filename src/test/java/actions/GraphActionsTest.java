@@ -1,25 +1,24 @@
-import graph_actions.ActionType;
-import graph_actions.GraphAction;
-import graph_actions.GraphActionFactory;
+package actions;
+
 import models.Graph;
 import models.Train;
 import org.junit.Before;
 import org.junit.Test;
+import services.GraphServiceImpl;
 import services.GraphService;
-import services.GraphServiceInterface;
 import utils.exception.InvalidPathNameException;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class RouteTest {
+public class GraphActionsTest {
 
   String testGraphText;
-  GraphServiceInterface graphServiceInterface;
+  GraphService graphServiceInterface;
   GraphAction graphAction;
 
   @Before
   public void setTestData() {
-    graphServiceInterface = new GraphService();
+    graphServiceInterface = new GraphServiceImpl();
     testGraphText = "AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7";
   }
 

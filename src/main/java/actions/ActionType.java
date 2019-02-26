@@ -1,4 +1,4 @@
-package graph_actions;
+package actions;
 
 public enum ActionType {
   ROUTE_DISTANCE,

@@ -1,24 +1,21 @@
-import models.Edge;
-import models.Graph;
-import models.Node;
-import models.Train;
+package models;
+
 import org.junit.Before;
 import org.junit.Test;
-import services.GraphService;
+import services.GraphServiceImpl;
 import utils.exception.InvalidPathNameException;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.mock;
 
 public class GraphTest {
 
   String testGraphText;
-  GraphService graphServiceInterface;
+  GraphServiceImpl graphServiceInterface;
 
   @Before
   public void setTestData() {
-    graphServiceInterface = new GraphService();
+    graphServiceInterface = new GraphServiceImpl();
     testGraphText = "AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7";
   }
 
@@ -35,13 +32,13 @@ public class GraphTest {
   }
 
   @Test
-  public void shouldCreateAnEdgeWithDestinationAndLength() {
-    Node mockedNode = mock(Node.class);
-    Edge edge = new Edge(mockedNode, 1);
+  public void shouldCreateAnEdgeWithDestinationAndLength() throws InvalidPathNameException {
+    Node node = new Node('A');
+    Edge edge = new Edge(node, 1);
     edge.setLength(1);
 
     assertNotNull(edge);
-    assertEquals(mockedNode, edge.getDestination());
+    assertEquals(node, edge.getDestination());
     assertEquals(1, edge.getLength());
   }
 

@@ -1,11 +1,23 @@
 package models;
 
-import utils.constants.ValidNodeNames;
 import utils.exception.InvalidPathNameException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Node {
+
+  public static final List<Character> validNames =
+      new ArrayList<Character>() {
+        {
+          add('A');
+          add('B');
+          add('C');
+          add('D');
+          add('E');
+        }
+      };
 
   private HashMap<Character, Edge> edges;
   private char name;
@@ -17,7 +29,7 @@ public class Node {
   public Node(char name) throws InvalidPathNameException {
     this();
 
-    if (ValidNodeNames.validNames.contains(name)) {
+    if (validNames.contains(name)) {
       this.name = name;
     } else {
       throw new InvalidPathNameException("This node name is not allowed.");

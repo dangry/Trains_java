@@ -1,4 +1,4 @@
-package graph_actions;
+package actions;
 
 import models.Train;
 

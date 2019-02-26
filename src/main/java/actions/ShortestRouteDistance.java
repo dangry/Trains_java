@@ -1,4 +1,4 @@
-package graph_actions;
+package actions;
 
 import models.Edge;
 import models.Node;
@@ -10,8 +10,6 @@ public class ShortestRouteDistance implements GraphAction {
   private Train train;
   private String route;
   private int distanceTraveled;
-
-  public ShortestRouteDistance() {}
 
   public int getShortestDistance(Train train, String route, int distanceTraveled) {
 
