@@ -30,7 +30,7 @@ public class FileController {
     List<String> response = new ArrayList<>();
 
     for (String instruction : fileLines) {
-      if (isGraph(instruction)) {
+      if (isGraphString(instruction)) {
         textService.createGraphFromText(instruction);
       } else {
         String actionResponse = textService.doAction(instruction);
@@ -41,9 +41,7 @@ public class FileController {
     return response;
   }
 
-  private boolean isGraph(String instruction) {
-    return instruction.charAt(3) == COMMA_CHAR && instruction.charAt(8) == COMMA_CHAR
-        ? true
-        : false;
+  private boolean isGraphString(String instruction) {
+    return instruction.charAt(3) == COMMA_CHAR && instruction.charAt(8) == COMMA_CHAR;
   }
 }
