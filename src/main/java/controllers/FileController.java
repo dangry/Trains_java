@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class TextController {
+public class FileController {
 
   private static final char COMMA_CHAR = ',';
 
@@ -17,7 +17,7 @@ public class TextController {
 
   private TextService textService = new TextServiceImpl();
 
-  public TextController(String fileName) throws FileNotFoundException {
+  public FileController(String fileName) throws FileNotFoundException {
     File file = new File(fileName);
     Scanner scanner = new Scanner(file);
     while (scanner.hasNextLine()) {

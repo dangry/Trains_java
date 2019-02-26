@@ -8,15 +8,15 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.assertThat;
 
-public class TextControllerTest {
+public class FileControllerTest {
 
   String fileName;
-  TextController textController;
+  FileController textController;
 
   @Before
   public void setupTestData() throws FileNotFoundException {
     fileName = "src/test/resources/testFile.txt";
-    textController = new TextController(fileName);
+    textController = new FileController(fileName);
   }
 
   @Test

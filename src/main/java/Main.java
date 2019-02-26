@@ -1,4 +1,4 @@
-import controllers.TextController;
+import controllers.FileController;
 
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -8,7 +8,7 @@ public class Main {
   public static void main(String[] args) {
     try {
 
-      TextController fileController = new TextController(args[0]);
+      FileController fileController = new FileController(args[0]);
       List<String> fileControllerResponses = fileController.processFile();
 
       for(String response : fileControllerResponses) {
