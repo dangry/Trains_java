@@ -11,12 +11,11 @@ import static junit.framework.TestCase.assertEquals;
 public class GraphActionsTest {
 
   Graph graph;
-  String testGraphText;
   GraphAction graphAction;
 
   @Before
   public void setTestData() throws InvalidPathNameException {
-    testGraphText = "AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7";
+    String testGraphText = "AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7";
     graph = Graph.createGraphFromText(testGraphText);
   }
 

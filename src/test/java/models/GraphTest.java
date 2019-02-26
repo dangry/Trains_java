@@ -53,7 +53,7 @@ public class GraphTest {
   }
 
   @Test
-  public void shouldCreateAPointer() {
+  public void shouldCreateATrain() {
     Train pointer = new Train('A', 'B', new Graph());
     assertNotNull(pointer);
   }

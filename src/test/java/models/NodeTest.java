@@ -25,7 +25,7 @@ public class NodeTest {
   }
 
   @Test
-  public void getAdjacentNodeByName() {
+  public void shouldGetAdjacentNodeByName() {
     assertEquals(nodeB, nodeA.getAdjacentNodeByName('B'));
   }
 
@@ -35,7 +35,7 @@ public class NodeTest {
   }
 
   @Test(expected = Exception.class)
-  public void nodeShouldHaveValidNames() throws Exception {
+  public void nodeShouldHaveAValidName() throws Exception {
     new Node('F');
   }
 }

@@ -4,6 +4,7 @@ import actions.ActionType;
 import org.junit.Before;
 import org.junit.Test;
 
+import static actions.ActionType.*;
 import static org.junit.Assert.assertEquals;
 
 public class TextServiceTest {
@@ -29,32 +30,30 @@ public class TextServiceTest {
 
   @Test
   public void shouldCheckIfDistanceInstructionIsValid() {
-    assertEquals(ActionType.ROUTE_DISTANCE, textService.getActionType(ROUTE_DISTANCE_STRING));
+    assertEquals(ROUTE_DISTANCE, textService.getActionType(ROUTE_DISTANCE_STRING));
   }
 
   @Test
   public void shouldCheckIfNumberOfTripsMaxStopsInstructionIsValid() {
     assertEquals(
-        ActionType.NUMBER_OF_TRIPS_MAX_STOPS,
-        textService.getActionType(NUMBER_OF_TRIPS_MAX_STOPS_STRING));
+        NUMBER_OF_TRIPS_MAX_STOPS, textService.getActionType(NUMBER_OF_TRIPS_MAX_STOPS_STRING));
   }
 
   @Test
   public void shouldCheckIfNumberOfTripsExactStopsInstructionIsValid() {
     assertEquals(
-        ActionType.NUMBER_OF_TRIPS_EXACT_STOPS,
-        textService.getActionType(NUMBER_OF_TRIPS_EXACT_STOPS_STRING));
+        NUMBER_OF_TRIPS_EXACT_STOPS, textService.getActionType(NUMBER_OF_TRIPS_EXACT_STOPS_STRING));
   }
 
   @Test
   public void shouldCheckIfShortestRouteInstructionIsValid() {
-    assertEquals(ActionType.SHORTEST_ROUTE, textService.getActionType(SHORTEST_ROUTE_STRING));
+    assertEquals(SHORTEST_ROUTE, textService.getActionType(SHORTEST_ROUTE_STRING));
   }
 
   @Test
   public void shouldCheckIfDifferentRoutesMaxDistanceInstructionIsValid() {
     assertEquals(
-        ActionType.DIFFERENT_ROUTES_MAX_DISTANCE,
+        DIFFERENT_ROUTES_MAX_DISTANCE,
         textService.getActionType(DIFFERENT_ROUTES_MAX_DISTANCE_STRING));
   }
 

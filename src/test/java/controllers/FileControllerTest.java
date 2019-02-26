@@ -10,12 +10,11 @@ import static org.junit.Assert.assertThat;
 
 public class FileControllerTest {
 
-  String fileName;
   FileController textController;
 
   @Before
   public void setupTestData() throws FileNotFoundException {
-    fileName = "src/test/resources/testFile.txt";
+    String fileName = "src/test/resources/testFile.txt";
     textController = new FileController(fileName);
   }
 
