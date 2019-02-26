@@ -24,7 +24,7 @@ The resulting JAR file will be in `build/libs/` with the name `Trains_java-1.0-S
 
 To run this JAR file you have to specify the path of the test file (one is included in the project `src/test/resources/testFile.txt`):
 
- - Example run (from the root folder): `java -jar build/libs/Trains_java-1.0-SNAPSHOT.jar src/test/resources/testFile.txt`
+Example run (from the root folder): `java -jar build/libs/Trains_java-1.0-SNAPSHOT.jar src/test/resources/testFile.txt`
  
 ## Application architecture
 
