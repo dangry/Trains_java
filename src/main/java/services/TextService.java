@@ -3,7 +3,7 @@ package services;
 import actions.ActionType;
 
 public interface TextService {
-  void createGraph(String graphText);
+  void createGraphFromText(String graphText);
 
   ActionType getActionType(String instruction);
 

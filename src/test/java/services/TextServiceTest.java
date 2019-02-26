@@ -24,7 +24,7 @@ public class TextServiceTest {
   @Before
   public void setupTestData() {
     textService = new TextServiceImpl();
-    textService.createGraph("AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7");
+    textService.createGraphFromText("AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7");
   }
 
   @Test

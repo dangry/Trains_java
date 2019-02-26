@@ -34,7 +34,7 @@ public class TextServiceImpl implements TextService {
   GraphService graphServiceInterface = new GraphServiceImpl();
 
   @Override
-  public void createGraph(String graphText) {
+  public void createGraphFromText(String graphText) {
     try {
       this.graph = graphServiceInterface.createGraphFromText(graphText);
     } catch (InvalidPathNameException e) {
@@ -176,21 +176,17 @@ public class TextServiceImpl implements TextService {
 
   private Train createTrainFromData(String instructionData, ActionType actionType) {
 
-    Train train;
-
     if (actionType == ROUTE_DISTANCE) {
-      train = new Train(instructionData, graph);
+      return new Train(instructionData, graph);
     } else if (actionType == SHORTEST_ROUTE) {
       char start = instructionData.charAt(0);
       char end = instructionData.charAt(1);
-      train = new Train(start, end, graph);
+      return new Train(start, end, graph);
     } else {
       char start = instructionData.charAt(0);
       char end = instructionData.charAt(1);
       int limit = Integer.valueOf(instructionData.substring(2));
-      train = new Train(start, end, graph, limit);
+      return new Train(start, end, graph, limit);
     }
-
-    return train;
   }
 }

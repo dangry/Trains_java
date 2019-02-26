@@ -13,9 +13,9 @@ public class FileController {
 
   private static final char COMMA_CHAR = ',';
 
-  private List<String> fileLines = new ArrayList<>();
-
   private TextService textService = new TextServiceImpl();
+
+  private List<String> fileLines = new ArrayList<>();
 
   public FileController(String fileName) throws FileNotFoundException {
     File file = new File(fileName);
@@ -31,7 +31,7 @@ public class FileController {
 
     for (String instruction : fileLines) {
       if (isGraph(instruction)) {
-        textService.createGraph(instruction);
+        textService.createGraphFromText(instruction);
       } else {
         String actionResponse = textService.doAction(instruction);
         response.add(actionResponse);
