@@ -49,6 +49,8 @@ Example run (from the root folder): `java -jar build/libs/Trains_java-1.0-SNAPSH
  - **Graphs**: Represent the **railroad system map** of Kiwiland, they consist of **Nodes** (stations) and **Edges** (roads).
  - **Trains**: They represent trains with a destination. They contain a reference of the current station they are in, a reference to the destination, a reference to the railroad system map, and a reference to the limitations on it's trip.
  
+## File structure 
+ 
 #### The structure the file that the application will read has to follow these templates:
 
 The first line must contain the map of the railroad system where the towns are named using the letters of the alphabet from A to E. A route between city A and city B with a distance of 3 will be represented as AB3.
