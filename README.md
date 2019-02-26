@@ -30,16 +30,16 @@ To run this JAR file you have to specify the path of the test file (One is inclu
 
 ### Controllers:
 
- - **FileController** is the entry point responsible of interacting with the FileController service with a file that reads from a given path.
+ - **FileController** is the entry point responsible of interacting with the **FileService** with a file that reads from a given path.
  
 ### Services:
 
- - **TextService** is the interface that will be used by controllers, in this case FileController.
- - **TextServiceImpl** is the implementation of the interface, it has the logic necessary to parse text and call the apropiate actions.
+ - **TextService** is the interface that will be used by controllers, in this case **FileController**.
+ - **TextServiceImpl** is the implementation of the interface, it has the logic necessary to parse text and call the appropriate actions.
 
 ### Actions:
 
- - **GraphAction** is the interface that will be used by services, in this case TextService.
+ - **GraphAction** is the interface that will be used by services, in this case **TextService**.
  - **GraphActionFactory** is used map actions implementations to be returned to consumers.
  - **NumberOfPathsWithExactStops, NumberOfPathsWithLimitDistance, NumberOfPathsWithMaxStops, RouteDistance, and ShortestRouteDistance** are the implementations of GraphAction interface. This are the concrete actions that will be used by consumers.
 
