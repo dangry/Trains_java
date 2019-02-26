@@ -31,8 +31,6 @@ public class TextServiceImpl implements TextService {
 
   private Graph graph;
 
-//  GraphService graphServiceInterface = new GraphServiceImpl();
-
   @Override
   public void createGraphFromText(String graphText) {
     try {
