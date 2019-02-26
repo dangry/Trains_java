@@ -22,13 +22,16 @@
 
 #### Services:
 
- **- TextService**
+ **- TextService** is the interface that will be used by controllers, in this case FileController.
+ **- TextServiceImpl** is the implementation of the interface, it has the logic necessary to parse text and call the apropiate actions.
 
 ###### Services are the ones that will communicate with the actions supported, in this case as we are processing and parsing text text service was implemented.
 
 #### Actions:
 
- **- GraphAction**
+ **- GraphAction** is the interface that will be used by services, in this case TextService.
+ **- GraphActionFactory** is used map actions implementations to be returned to consumers.
+ **- NumberOfPathsWithExactStops, NumberOfPathsWithLimitDistance, NumberOfPathsWithMaxStops, RouteDistance, and ShortestRouteDistance** are the implementations of GraphAction interface. This are the concrete actions that will be used by consumers.
 
 ###### Actions represent what we can do with the data provided by the service.
 
