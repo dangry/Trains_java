@@ -39,9 +39,9 @@ To run this JAR file you have to specify the path of the test file (One is inclu
 
 ### Actions:
 
- **- GraphAction** is the interface that will be used by services, in this case TextService.
- **- GraphActionFactory** is used map actions implementations to be returned to consumers.
- **- NumberOfPathsWithExactStops, NumberOfPathsWithLimitDistance, NumberOfPathsWithMaxStops, RouteDistance, and ShortestRouteDistance** are the implementations of GraphAction interface. This are the concrete actions that will be used by consumers.
+ - **GraphAction** is the interface that will be used by services, in this case TextService.
+ - **GraphActionFactory** is used map actions implementations to be returned to consumers.
+ - **NumberOfPathsWithExactStops, NumberOfPathsWithLimitDistance, NumberOfPathsWithMaxStops, RouteDistance, and ShortestRouteDistance** are the implementations of GraphAction interface. This are the concrete actions that will be used by consumers.
 
 #### Models:
  - **Edges**: Represent the **railroads** of Kiwiland train system. They have a destination and a length.
