@@ -16,21 +16,21 @@
 
 #### Controllers:
 
-###### Controllers are the entry point of the application, in this case file controller was implemented to process text files.
-
  **- FileController** 
+ 
+###### Controllers are the entry point of the application, in this case file controller was implemented to process text files.
 
 #### Services:
 
-###### Services are the ones that will communicate with the actions supported, in this case as we are processing and parsing text text service was implemented.
-
  **- TextService**
+
+###### Services are the ones that will communicate with the actions supported, in this case as we are processing and parsing text text service was implemented.
 
 #### Actions:
 
-###### Actions represent what we can do with the data provided by the service.
-
  **- GraphAction**
+
+###### Actions represent what we can do with the data provided by the service.
 
 #### Models:
  - **Edges**: Represent the **railroads** of Kiwiland train system. They have a destination and a length.
