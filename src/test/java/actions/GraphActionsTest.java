@@ -4,28 +4,25 @@ import models.Graph;
 import models.Train;
 import org.junit.Before;
 import org.junit.Test;
-import services.GraphServiceImpl;
-import services.GraphService;
 import exceptions.InvalidPathNameException;
 
 import static junit.framework.TestCase.assertEquals;
 
 public class GraphActionsTest {
 
+  Graph graph;
   String testGraphText;
-  GraphService graphServiceInterface;
   GraphAction graphAction;
 
   @Before
-  public void setTestData() {
-    graphServiceInterface = new GraphServiceImpl();
+  public void setTestData() throws InvalidPathNameException {
     testGraphText = "AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7";
+    graph = Graph.createGraphFromText(testGraphText);
   }
 
   @Test
-  public void shouldGetTheDistanceOfRouteABC() throws InvalidPathNameException {
+  public void shouldGetTheDistanceOfRouteABC() {
     String route = "A-B-C";
-    Graph graph = graphServiceInterface.createGraphFromText(testGraphText);
     Train train = new Train(route, graph);
     graphAction = GraphActionFactory.getAction(ActionType.ROUTE_DISTANCE);
     graphAction.setData(train);
@@ -33,9 +30,8 @@ public class GraphActionsTest {
   }
 
   @Test
-  public void shouldGetTheDistanceOfRouteAD() throws InvalidPathNameException {
+  public void shouldGetTheDistanceOfRouteAD() {
     String route = "A-D";
-    Graph graph = graphServiceInterface.createGraphFromText(testGraphText);
     Train train = new Train(route, graph);
     graphAction = GraphActionFactory.getAction(ActionType.ROUTE_DISTANCE);
     graphAction.setData(train);
@@ -43,9 +39,8 @@ public class GraphActionsTest {
   }
 
   @Test
-  public void shouldGetTheDistanceOfRouteADC() throws InvalidPathNameException {
+  public void shouldGetTheDistanceOfRouteADC() {
     String route = "A-D-C";
-    Graph graph = graphServiceInterface.createGraphFromText(testGraphText);
     Train train = new Train(route, graph);
     graphAction = GraphActionFactory.getAction(ActionType.ROUTE_DISTANCE);
     graphAction.setData(train);
@@ -53,9 +48,8 @@ public class GraphActionsTest {
   }
 
   @Test
-  public void shouldGetTheDistanceOfRouteAEBCD() throws InvalidPathNameException {
+  public void shouldGetTheDistanceOfRouteAEBCD() {
     String route = "A-E-B-C-D";
-    Graph graph = graphServiceInterface.createGraphFromText(testGraphText);
     Train train = new Train(route, graph);
     graphAction = GraphActionFactory.getAction(ActionType.ROUTE_DISTANCE);
     graphAction.setData(train);
@@ -63,9 +57,7 @@ public class GraphActionsTest {
   }
 
   @Test
-  public void shouldGetNumberOfPathsBetweenNodeWithLimitDistanceForRouteCC()
-      throws InvalidPathNameException {
-    Graph graph = graphServiceInterface.createGraphFromText(testGraphText);
+  public void shouldGetNumberOfPathsBetweenNodeWithLimitDistanceForRouteCC() {
     Train train = new Train('C', 'C', graph, 30);
     GraphAction graphAction =
         GraphActionFactory.getAction(ActionType.DIFFERENT_ROUTES_MAX_DISTANCE);
@@ -74,9 +66,7 @@ public class GraphActionsTest {
   }
 
   @Test
-  public void shouldGetNumberOfPathsBetweenNodesWithLimitDistanceForRouteEC()
-      throws InvalidPathNameException {
-    Graph graph = graphServiceInterface.createGraphFromText(testGraphText);
+  public void shouldGetNumberOfPathsBetweenNodesWithLimitDistanceForRouteEC() {
     Train train = new Train('E', 'C', graph, 30);
     GraphAction graphAction =
         GraphActionFactory.getAction(ActionType.DIFFERENT_ROUTES_MAX_DISTANCE);
@@ -85,9 +75,7 @@ public class GraphActionsTest {
   }
 
   @Test
-  public void shouldGetTheNumberOfPathsBetweenNodesWithExactStops()
-      throws InvalidPathNameException {
-    Graph graph = graphServiceInterface.createGraphFromText(testGraphText);
+  public void shouldGetTheNumberOfPathsBetweenNodesWithExactStops() {
     Train train = new Train('A', 'C', graph, 4);
     GraphAction graphAction = GraphActionFactory.getAction(ActionType.NUMBER_OF_TRIPS_EXACT_STOPS);
     graphAction.setData(train);
@@ -95,9 +83,7 @@ public class GraphActionsTest {
   }
 
   @Test
-  public void shouldGetNumberOfPathsBetweenNodesWithLimitForRouteAB()
-      throws InvalidPathNameException {
-    Graph graph = graphServiceInterface.createGraphFromText(testGraphText);
+  public void shouldGetNumberOfPathsBetweenNodesWithLimitForRouteAB() {
     Train train = new Train('A', 'B', graph, 30);
     GraphAction graphAction =
         GraphActionFactory.getAction(ActionType.DIFFERENT_ROUTES_MAX_DISTANCE);
@@ -106,9 +92,7 @@ public class GraphActionsTest {
   }
 
   @Test
-  public void shouldGetTheNumberOfPathsBetweenNodesWithMaximumStops()
-      throws InvalidPathNameException {
-    Graph graph = graphServiceInterface.createGraphFromText(testGraphText);
+  public void shouldGetTheNumberOfPathsBetweenNodesWithMaximumStops() {
     Train train = new Train('C', 'C', graph, 3);
     GraphAction graphAction = GraphActionFactory.getAction(ActionType.NUMBER_OF_TRIPS_MAX_STOPS);
     graphAction.setData(train);
@@ -116,8 +100,7 @@ public class GraphActionsTest {
   }
 
   @Test
-  public void getShortestDistanceBetweenTwoNodes() throws InvalidPathNameException {
-    Graph graph = graphServiceInterface.createGraphFromText(testGraphText);
+  public void getShortestDistanceBetweenTwoNodes() {
     Train train = new Train('A', 'C', graph);
     GraphAction graphAction = GraphActionFactory.getAction(ActionType.SHORTEST_ROUTE);
     graphAction.setData(train);
@@ -125,8 +108,7 @@ public class GraphActionsTest {
   }
 
   @Test
-  public void getShortestDistanceBetweenTwoOtherNodes() throws InvalidPathNameException {
-    Graph graph = graphServiceInterface.createGraphFromText(testGraphText);
+  public void getShortestDistanceBetweenTwoOtherNodes() {
     Train train = new Train('B', 'B', graph);
     graphAction = GraphActionFactory.getAction(ActionType.SHORTEST_ROUTE);
     graphAction.setData(train);

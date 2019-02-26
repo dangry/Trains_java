@@ -2,7 +2,6 @@ package models;
 
 import org.junit.Before;
 import org.junit.Test;
-import services.GraphServiceImpl;
 import exceptions.InvalidPathNameException;
 
 import static junit.framework.TestCase.assertEquals;
@@ -11,11 +10,9 @@ import static org.junit.Assert.assertNotNull;
 public class GraphTest {
 
   String testGraphText;
-  GraphServiceImpl graphServiceInterface;
 
   @Before
   public void setTestData() {
-    graphServiceInterface = new GraphServiceImpl();
     testGraphText = "AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7";
   }
 
@@ -44,7 +41,7 @@ public class GraphTest {
 
   @Test
   public void shouldCreateAGraphWithNodesFromText() throws Exception {
-    Graph graph = graphServiceInterface.createGraphFromText(testGraphText);
+    Graph graph = Graph.createGraphFromText(testGraphText);
     assertEquals(3, graph.nodes.get('A').getEdges().size());
     assertEquals(5, graph.nodes.size());
   }
@@ -52,7 +49,7 @@ public class GraphTest {
   @Test(expected = InvalidPathNameException.class)
   public void shouldNotParseInvalidPaths() throws InvalidPathNameException {
     String invalidPaths = "AB5, INVALID42, CD812F, DC8, DE6, AD5, CE2, EB3, AE7AAA111";
-    graphServiceInterface.createGraphFromText(invalidPaths);
+    Graph.createGraphFromText(invalidPaths);
   }
 
   @Test

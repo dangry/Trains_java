@@ -31,12 +31,12 @@ public class TextServiceImpl implements TextService {
 
   private Graph graph;
 
-  GraphService graphServiceInterface = new GraphServiceImpl();
+//  GraphService graphServiceInterface = new GraphServiceImpl();
 
   @Override
   public void createGraphFromText(String graphText) {
     try {
-      this.graph = graphServiceInterface.createGraphFromText(graphText);
+      this.graph = Graph.createGraphFromText(graphText);
     } catch (InvalidPathNameException e) {
       e.printStackTrace();
     }
