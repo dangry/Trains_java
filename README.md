@@ -4,7 +4,7 @@
  
 #### Actions supported:
 
-###### By budget restrictions imposed by the country there are currently only **5** actions supported.
+###### By budget restrictions imposed by Kiwiland there are currently only **5** actions supported.
 
  - **Route distance:** Returns the distance of a route. 
  - **Number of trips with MAX stops:** Returns the number of trips between cities with **maximum** stops.
