@@ -1,5 +1,8 @@
 package models;
 
+import static actions.ActionType.ROUTE_DISTANCE;
+import static actions.ActionType.SHORTEST_ROUTE;
+
 public class Train {
 
   public char currentNodeName;
@@ -30,4 +33,21 @@ public class Train {
   public Node getCurrentNode() {
     return graph.nodes.get(currentNodeName);
   }
+
+  public static Train createTrain(Action action, Graph graph) {
+
+    if (action.actionType == ROUTE_DISTANCE) {
+      return new Train(action.actionData, graph);
+    } else if (action.actionType == SHORTEST_ROUTE) {
+      char start = action.actionData.charAt(0);
+      char end = action.actionData.charAt(1);
+      return new Train(start, end, graph);
+    } else {
+      char start = action.actionData.charAt(0);
+      char end = action.actionData.charAt(1);
+      int limit = Integer.valueOf(action.actionData.substring(2));
+      return new Train(start, end, graph, limit);
+    }
+  }
+
 }

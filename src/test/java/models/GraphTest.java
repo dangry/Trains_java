@@ -52,9 +52,4 @@ public class GraphTest {
     Graph.createGraphFromText(invalidPaths);
   }
 
-  @Test
-  public void shouldCreateATrain() {
-    Train pointer = new Train('A', 'B', new Graph());
-    assertNotNull(pointer);
-  }
 }

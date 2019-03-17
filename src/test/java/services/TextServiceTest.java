@@ -1,6 +1,6 @@
 package services;
 
-import actions.ActionType;
+import models.Action;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -82,33 +82,11 @@ public class TextServiceTest {
     assertEquals("CC30", textService.getActionData(DIFFERENT_ROUTES_MAX_DISTANCE_STRING));
   }
 
-  @Test
-  public void shouldDoActionWithText_ROUTE_DISTANCE_STRING() {
-    assertEquals("9", textService.doAction(ROUTE_DISTANCE_STRING));
-  }
 
   @Test
-  public void shouldDoActionWithText_INVALID_ROUTE_DISTANCE_STRING() {
-    assertEquals("NO SUCH ROUTE", textService.doAction(INVALID_ROUTE_DISTANCE_STRING));
+  public void shouldReturnAnActionFromInstruction() {
+    Action action = new Action(ROUTE_DISTANCE, "A-B-C");
+    assertEquals(action, textService.getAction(ROUTE_DISTANCE_STRING));
   }
 
-  @Test
-  public void shouldDoActionWithText_NUMBER_OF_TRIPS_MAX_STOPS_STRING() {
-    assertEquals("2", textService.doAction(NUMBER_OF_TRIPS_MAX_STOPS_STRING));
-  }
-
-  @Test
-  public void shouldDoActionWithText_NUMBER_OF_TRIPS_EXACT_STOPS_STRING() {
-    assertEquals("3", textService.doAction(NUMBER_OF_TRIPS_EXACT_STOPS_STRING));
-  }
-
-  @Test
-  public void shouldDoActionWithText_SHORTEST_ROUTE_STRING() {
-    assertEquals("9", textService.doAction(SHORTEST_ROUTE_STRING));
-  }
-
-  @Test
-  public void shouldDoActionWithText_DIFFERENT_ROUTES_MAX_DISTANCE_STRING() {
-    assertEquals("7", textService.doAction(DIFFERENT_ROUTES_MAX_DISTANCE_STRING));
-  }
 }

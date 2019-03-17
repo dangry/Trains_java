@@ -1,6 +1,8 @@
 package services;
 
 import actions.ActionType;
+import models.Action;
+import models.Graph;
 
 public interface TextService {
   void createGraphFromText(String graphText);
@@ -9,5 +11,7 @@ public interface TextService {
 
   String getActionData(String instruction);
 
-  String doAction(String instruction);
+  Action getAction(String routeDistanceString);
+
+  Graph getGraph();
 }

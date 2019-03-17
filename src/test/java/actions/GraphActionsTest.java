@@ -1,10 +1,10 @@
 package actions;
 
+import exceptions.InvalidPathNameException;
 import models.Graph;
 import models.Train;
 import org.junit.Before;
 import org.junit.Test;
-import exceptions.InvalidPathNameException;
 
 import static junit.framework.TestCase.assertEquals;
 

@@ -1,10 +1,8 @@
 package services;
 
 import actions.ActionType;
-import actions.GraphAction;
-import actions.GraphActionFactory;
+import models.Action;
 import models.Graph;
-import models.Train;
 import exceptions.InvalidPathNameException;
 
 import static actions.ActionType.*;
@@ -22,12 +20,19 @@ public class TextServiceImpl implements TextService {
   private static final String WITH_A_MAXIMUM_OF_STRING = "with a maximum of";
   private static final String AND_ENDING_AT_STRING = "and ending at";
   private static final String WITH_EXACTLY_STRING = "with exactly";
-  private static final String NO_SUCH_ROUTE = "NO SUCH ROUTE";
+  public static final String NO_SUCH_ROUTE = "NO SUCH ROUTE";
   private static final String STOPS_STRING = "stops";
   private static final String TO_STRING = "to";
   private static final String SPACE_STRING = " ";
   private static final String DOT_STRING = ".";
   private static final String NOTHING = "";
+  private static final char COMMA_CHAR = ',';
+  private final TrainService trainService = new TrainService(this);
+
+  @Override
+  public Graph getGraph() {
+    return graph;
+  }
 
   private Graph graph;
 
@@ -41,27 +46,10 @@ public class TextServiceImpl implements TextService {
   }
 
   @Override
-  public String doAction(String instruction) {
-
-    String actionResponse;
-
+  public Action getAction(String instruction) {
     ActionType actionType = getActionType(instruction);
     String actionData = getActionData(instruction);
-
-    Train train = createTrainFromData(actionData, actionType);
-
-    GraphAction graphAction = GraphActionFactory.getAction(actionType);
-    graphAction.setData(train);
-
-    int result = graphAction.execute();
-
-    if (result > -1) {
-      actionResponse = String.valueOf(result);
-    } else {
-      actionResponse = NO_SUCH_ROUTE;
-    }
-
-    return actionResponse;
+    return new Action(actionType, actionData);
   }
 
   @Override
@@ -164,6 +152,10 @@ public class TextServiceImpl implements TextService {
         .replace(DOT_STRING, NOTHING);
   }
 
+  public static boolean isGraphString(String instruction) {
+    return instruction.charAt(3) == COMMA_CHAR && instruction.charAt(8) == COMMA_CHAR;
+  }
+
   private String removeExtraInformationFromInstruction(String instruction) {
     return instruction.substring(0, instruction.indexOf(DOT_STRING + SPACE_STRING));
   }
@@ -172,19 +164,4 @@ public class TextServiceImpl implements TextService {
     return instruction.indexOf(DOT_STRING + SPACE_STRING) > -1;
   }
 
-  private Train createTrainFromData(String instructionData, ActionType actionType) {
-
-    if (actionType == ROUTE_DISTANCE) {
-      return new Train(instructionData, graph);
-    } else if (actionType == SHORTEST_ROUTE) {
-      char start = instructionData.charAt(0);
-      char end = instructionData.charAt(1);
-      return new Train(start, end, graph);
-    } else {
-      char start = instructionData.charAt(0);
-      char end = instructionData.charAt(1);
-      int limit = Integer.valueOf(instructionData.substring(2));
-      return new Train(start, end, graph, limit);
-    }
-  }
 }
